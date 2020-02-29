@@ -11,6 +11,7 @@
 // COMPONENTS
 @import './components/button';
 @import './components/_react-scroll';
+@import './components/modal';
 
 // LAYOUTS
 @import './layouts/header';
@@ -18,3 +19,4 @@
 @import './layouts/footer';
 
 // PAGES
+@import './pages/Home';

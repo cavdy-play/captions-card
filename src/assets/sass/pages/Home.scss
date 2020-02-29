@@ -1,0 +1,27 @@
+.home {
+  height: $percent-100;
+  position: relative;
+
+  &__add-caption {
+    position: fixed;
+    bottom: $font-20;
+    right: $font-20;
+    width: $percent-100;
+    max-width: $add-caption;
+    height: $percent-100;
+    max-height: $add-caption;
+    border-radius: $percent-100;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    font-size: 50px;
+    color: $color-white;
+    font-weight: 600;
+    background: $color-blue;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+  }
+}
