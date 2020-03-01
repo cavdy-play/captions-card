@@ -57,4 +57,11 @@ export const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  ${({ active }) =>
+    active &&
+    `
+    background-color: #2196f3a3;
+    cursor: not-allowed;
+  `}
 `;
