@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import { CaptionEl, Title } from '../assets/styles/caption';
 
 interface Props {
   title: string;
@@ -6,9 +7,9 @@ interface Props {
 
 const Caption: FunctionComponent<Props> = ({ title }): ReactElement => {
   return (
-    <div className="caption">
-      <h1>{title}</h1>
-    </div>
+    <CaptionEl>
+      <Title>{title}</Title>
+    </CaptionEl>
   );
 };
 

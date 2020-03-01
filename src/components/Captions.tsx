@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import ReactScroll from 'react-perfect-scrollbar';
 import Caption from './Caption';
 import { getCaptions } from '../services/Actions/captionAction';
+import { CaptionsEl } from '../assets/styles/captions';
+import Loader from './Loader';
 
 type CaptionsType = {
   id: number;
@@ -19,13 +21,15 @@ const Captions: FunctionComponent = (): ReactElement => {
 
   return (
     <ReactScroll>
-      <div className="captions">
-        {captions.length
-          ? captions.map((c: CaptionsType) => (
-              <Caption key={c.id} title={c.caption} />
-            ))
-          : null}
-      </div>
+      {captions.length ? (
+        <CaptionsEl className="captions">
+          {captions.map((c: CaptionsType) => (
+            <Caption key={c.id} title={c.caption} />
+          ))}
+        </CaptionsEl>
+      ) : (
+        <Loader />
+      )}
     </ReactScroll>
   );
 };
