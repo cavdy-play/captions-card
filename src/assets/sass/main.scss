@@ -12,11 +12,13 @@
 @import './components/button';
 @import './components/_react-scroll';
 @import './components/modal';
+@import './components/caption';
 
 // LAYOUTS
 @import './layouts/header';
 @import './layouts/sidebar';
 @import './layouts/footer';
+@import './layouts/captions';
 
 // PAGES
 @import './pages/Home';
