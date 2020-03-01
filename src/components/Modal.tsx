@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import { ModalEl, ModalBtn } from '../assets/styles/modal';
 
 interface Props {
   children: ReactElement;
@@ -13,12 +14,10 @@ const Modal: FunctionComponent<Props> = ({
 }): ReactElement => {
   return (
     <>
-      <div className={`modal ${toggle ? 'show-modal' : ''}`}>
-        <button className="modal-close" onClick={toggleFunc}>
-          x
-        </button>
+      <ModalEl active={toggle}>
+        <ModalBtn onClick={toggleFunc}>x</ModalBtn>
         {children}
-      </div>
+      </ModalEl>
     </>
   );
 };

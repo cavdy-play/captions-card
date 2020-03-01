@@ -1,7 +1,8 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import { HeaderEl } from '../assets/styles/header';
 
 const Header: FunctionComponent = (): ReactElement => {
-  return <header className="header">Header</header>;
+  return <HeaderEl>Header</HeaderEl>;
 };
 
 export default Header;

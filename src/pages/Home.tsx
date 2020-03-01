@@ -2,14 +2,15 @@ import React, { ReactElement, FunctionComponent } from 'react';
 import Header from '../components/Header';
 import AddCaption from '../components/AddCaption';
 import Captions from '../components/Captions';
+import { HomeEl } from '../assets/styles/home';
 
 const Dashboard: FunctionComponent = (): ReactElement => {
   return (
-    <div className="home">
+    <HomeEl>
       <Header />
       <Captions />
       <AddCaption />
-    </div>
+    </HomeEl>
   );
 };
 
