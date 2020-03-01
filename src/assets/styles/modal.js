@@ -6,7 +6,8 @@ export const ModalEl = styled.div`
   max-width: 300px;
   height: ${({ theme }) => theme.percent100};
   top: 0;
-  background-color: ${({ theme }) => theme.colorBlue};
+  left: 0;
+  background-color: ${({ theme }) => theme.colorWhite};
   padding-left: ${({ theme }) => theme.font20};
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;

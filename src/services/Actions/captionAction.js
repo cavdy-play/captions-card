@@ -1,10 +1,9 @@
 import axios from '../config/axiosConfig';
-import { GET_CAPTIONS } from './types';
+import { GET_CAPTIONS, GET_TAGS } from './types';
 
 export const getCaptions = () => async dispatch => {
   try {
     const res = await axios.get('/caption');
-    console.log(res.data.data.captions);
     if (res && res.data) {
       dispatch({
         type: GET_CAPTIONS,
@@ -12,9 +11,6 @@ export const getCaptions = () => async dispatch => {
       });
     }
   } catch (err) {
-    // dispatch({
-    //   type: 'dddd',
-    //   payload: err,
-    // });
+    //
   }
 };
