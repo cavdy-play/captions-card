@@ -12,12 +12,14 @@ const Modal: FunctionComponent<Props> = ({
   toggleFunc,
 }): ReactElement => {
   return (
-    <div className={`modal ${toggle ? 'show-modal' : ''}`}>
-      <button className="modal-close" onClick={toggleFunc}>
-        x
-      </button>
-      {children}
-    </div>
+    <>
+      <div className={`modal ${toggle ? 'show-modal' : ''}`}>
+        <button className="modal-close" onClick={toggleFunc}>
+          x
+        </button>
+        {children}
+      </div>
+    </>
   );
 };
 
