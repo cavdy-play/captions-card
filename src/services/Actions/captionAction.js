@@ -1,5 +1,5 @@
 import axios from '../config/axiosConfig';
-import { GET_CAPTIONS, ADD_CAPTIONS } from './types';
+import { GET_CAPTIONS, ADD_CAPTIONS, FAILED_ADD_CAPTIONS } from './types';
 
 export const getCaptions = () => async dispatch => {
   try {
@@ -25,6 +25,9 @@ export const addCaptions = body => async dispatch => {
       });
     }
   } catch (err) {
-    //
+    dispatch({
+      type: FAILED_ADD_CAPTIONS,
+      payload: false,
+    });
   }
 };

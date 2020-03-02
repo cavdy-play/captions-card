@@ -3,8 +3,10 @@ import React, {
   useEffect,
   FunctionComponent,
   ReactElement,
+  SyntheticEvent,
 } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import Modal from './Modal';
 import {
   AddBtn,
@@ -14,14 +16,14 @@ import {
   Button,
 } from '../assets/styles/addCaption';
 import { getTags } from '../services/Actions/tagAction';
-import { addCaptions } from '../services/Actions/captionAction';
+import { addCaptions, getCaptions } from '../services/Actions/captionAction';
 import Loader from './Loader';
 
 const AddCaption: FunctionComponent = (): ReactElement => {
   const [data, setData] = useState({});
   const [loader, setLoader] = useState(false);
   const [toggle, setModal] = useState(false);
-  const toggleModal = (): void => setModal(!toggle);
+
   const tags = useSelector(state => state.tags);
   const captions = useSelector(state => state.captions);
   const dispatch = useDispatch();
@@ -30,14 +32,29 @@ const AddCaption: FunctionComponent = (): ReactElement => {
     dispatch(getTags());
   }, []);
 
-  if (captions && captions.success) window.location.reload();
+  useEffect(() => {
+    if (captions && captions.success) {
+      dispatch(getCaptions());
+      setLoader(false);
+      setModal(false);
+      toast.success('Successfully added');
+    } else if (captions && captions.failed === false) {
+      setLoader(false);
+      toast.error('Something went wrong, try again!');
+    }
+  }, [captions, dispatch]);
 
+  // TOOGLE MODAL FUNC
+  const toggleModal = (): void => setModal(!toggle);
+
+  // INPUT CHANGE FUNC
   const onChange = ({ target: { value, name } }): void => {
     if (name === 'tags') setData({ ...data, [name]: [value] });
     else setData({ ...data, [name]: value });
   };
 
-  const onSubmit = (event): void => {
+  // SUBMIT FUNC
+  const onSubmit = (event: SyntheticEvent): void => {
     event.preventDefault();
     dispatch(addCaptions(data));
     setLoader(true);
@@ -45,6 +62,7 @@ const AddCaption: FunctionComponent = (): ReactElement => {
 
   return (
     <>
+      <ToastContainer />
       <AddBtn onClick={toggleModal}>+</AddBtn>
       <Modal toggleFunc={toggleModal} toggle={toggle}>
         <form onSubmit={onSubmit}>
