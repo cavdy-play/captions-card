@@ -37,6 +37,11 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 10px;
   margin-top: 10px;
+
+  span {
+    font-size: 12px;
+    color: grey;
+  }
 `;
 
 export const Select = styled.select`
@@ -51,6 +56,7 @@ export const Button = styled.button`
   margin-top: 20px;
   height: 40px;
   font-size: 18px;
+  font-weight: 600;
   color: ${({ theme }) => theme.colorWhite};
   background-color: ${({ theme }) => theme.colorBlue};
   outline: none;
@@ -64,4 +70,13 @@ export const Button = styled.button`
     background-color: #2196f3a3;
     cursor: not-allowed;
   `}
+`;
+
+export const Input = styled.input`
+  width: 250px;
+  height: 20px;
+  border-radius: 5px;
+  border: 0.5px solid;
+  padding: 10px;
+  font-size: 18px;
 `;
