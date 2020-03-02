@@ -15,6 +15,40 @@ export const getCaptions = () => async dispatch => {
   }
 };
 
+export const addCaption = body => async dispatch => {
+  try {
+    const res = await axios.post('/caption', body);
+    if (res && res.status === 201) {
+      dispatch({
+        type: ADD_CAPTIONS,
+        payload: true,
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: FAILED_ADD_CAPTIONS,
+      payload: false,
+    });
+  }
+};
+
+export const addTag = body => async dispatch => {
+  try {
+    const res = await axios.post('/tag', body);
+    if (res && res.status === 201) {
+      dispatch({
+        type: ADD_CAPTIONS,
+        payload: true,
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: FAILED_ADD_CAPTIONS,
+      payload: false,
+    });
+  }
+};
+
 export const addCaptions = body => async dispatch => {
   try {
     const res = await axios.post('/caption/multi', body);
