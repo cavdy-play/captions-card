@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './services/store';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import 'react-toastify/dist/ReactToastify.css';
 import routes from './routes/appRoute';
 import theme from './assets/styles/variables';
 import GlobalStyles from './assets/styles/globalStyles';

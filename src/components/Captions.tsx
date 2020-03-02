@@ -23,9 +23,11 @@ const Captions: FunctionComponent = (): ReactElement => {
     <ReactScroll>
       {captions.length ? (
         <CaptionsEl className="captions">
-          {captions.map((c: CaptionsType) => (
-            <Caption key={c.id} title={c.caption} />
-          ))}
+          {captions
+            .sort((a, b) => b.id - a.id)
+            .map((c: CaptionsType) => (
+              <Caption key={c.id} title={c.caption} />
+            ))}
         </CaptionsEl>
       ) : (
         <Loader />
