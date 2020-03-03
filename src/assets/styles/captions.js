@@ -10,7 +10,7 @@ export const CaptionsEl = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 900px;
+  max-width: 1020px;
   justify-content: center;
 
   @media (max-width: 1024px) {
