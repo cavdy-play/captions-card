@@ -15,6 +15,24 @@ export const getCaptions = () => async dispatch => {
   }
 };
 
+export const getTagCaptions = params => async dispatch => {
+  try {
+    const res = await axios.get('/caption/withTag', {
+      params: {
+        tagId: params,
+      },
+    });
+    if (res && res.data) {
+      dispatch({
+        type: GET_CAPTIONS,
+        payload: res.data.data.captions,
+      });
+    }
+  } catch (err) {
+    //
+  }
+};
+
 export const addCaption = body => async dispatch => {
   try {
     const res = await axios.post('/caption', body);

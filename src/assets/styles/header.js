@@ -10,4 +10,8 @@ export const HeaderEl = styled.div`
   padding: 0 20px;
   z-index: 4;
   position: relative;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 20px;
+  color: ${({ theme }) => theme.colorBlue};
 `;
