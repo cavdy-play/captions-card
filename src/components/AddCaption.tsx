@@ -25,14 +25,37 @@ import {
 } from '../services/Actions/captionAction';
 import Loader from './Loader';
 
+type Tag = {
+  tags: string[];
+};
+
+type Captions = {
+  captions:
+    | { success: boolean; failed: boolean }
+    | { id: number; caption: string }[];
+};
+
+type Target = {
+  target: {
+    value: string;
+    name: string;
+  };
+};
+
+interface Data {
+  tags?: string[];
+  caption?: string;
+  tag?: string;
+}
+
 const AddCaption: FunctionComponent = (): ReactElement => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<Data>({});
   const [loader, setLoader] = useState(false);
   const [toggle, setModal] = useState(false);
   const [tagForm, setTagForm] = useState(false);
 
-  const tags = useSelector(state => state.tags);
-  const captions = useSelector(state => state.captions);
+  const tags: string[] = useSelector((state: Tag) => state.tags);
+  const captions = useSelector((state: Captions) => state.captions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,7 +79,7 @@ const AddCaption: FunctionComponent = (): ReactElement => {
   const toggleModal = (): void => setModal(!toggle);
 
   // INPUT CHANGE FUNC
-  const onChange = ({ target: { value, name } }): void => {
+  const onChange = ({ target: { value, name } }: Target): void => {
     if (name === 'tags') setData({ ...data, [name]: [value] });
     else setData({ ...data, [name]: value });
   };
